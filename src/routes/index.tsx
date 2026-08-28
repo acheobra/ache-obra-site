@@ -15,9 +15,7 @@ import {
   ShieldCheck,
   Users,
   Star,
-  Phone,
   Mail,
-  Globe,
 } from "lucide-react";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -27,16 +25,15 @@ import { CtaButton } from "@/components/ache-obra/cta-button";
 import { siteContentQuery } from "@/lib/site-content";
 import mockupImg from "../../public/images/ache-obra-mockup.png";
 
-
 export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQuery),
   head: () => ({
     meta: [
-      { title: "Ache Obra — Conecte sua obra aos melhores profissionais da sua região" },
+      { title: "Ache Obra — A plataforma que une clientes aos melhores profissionais da construção da sua região" },
       {
         name: "description",
         content:
-          "Publique seu serviço gratuitamente ou encontre pedreiros, arquitetos e engenheiros verificados em poucos cliques. Baixe o Ache Obra agora.",
+          "A plataforma que une clientes aos melhores profissionais da construção na sua região. Baixe o Ache Obra agora.",
       },
       { property: "og:title", content: "Ache Obra — Conecte sua obra aos melhores profissionais da sua região" },
       {
@@ -45,7 +42,6 @@ export const Route = createFileRoute("/")({
           "Publique seu serviço gratuitamente ou encontre profissionais verificados para sua reforma ou construção.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://acheobra.com.br" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -56,7 +52,6 @@ export const Route = createFileRoute("/")({
 function useContent() {
   return useSuspenseQuery(siteContentQuery).data;
 }
-
 
 function Index() {
   return (
@@ -117,8 +112,6 @@ function HeroSection() {
               </a>
             </CtaButton>
           </div>
-
-
 
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
@@ -201,7 +194,6 @@ function SolutionsSection() {
     </section>
   );
 }
-
 
 function SolutionCard({
   audience,
@@ -365,7 +357,6 @@ function TrustSection() {
   );
 }
 
-
 /* ------------------------------------------------------------------ */
 // RODAPÉ DE CONVERSÃO
 /* ------------------------------------------------------------------ */
@@ -383,7 +374,6 @@ function FooterCtaSection() {
         </h2>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-
           <StoreBadge store="google" />
           <StoreBadge store="apple" />
         </div>
@@ -395,17 +385,6 @@ function FooterCtaSection() {
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <CtaButton size="lg" asChild>
-              <a
-                href={content.whatsapp_link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gap-2"
-              >
-                <MessageSquare className="h-5 w-5" />
-                WhatsApp: {content.whatsapp_number}
-              </a>
-            </CtaButton>
             <CtaButton variant="outline" size="lg" asChild>
               <a href={`mailto:${content.support_email}`} className="gap-2">
                 <Mail className="h-5 w-5" />
@@ -415,33 +394,6 @@ function FooterCtaSection() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-6 border-t border-border pt-10 sm:flex-row sm:gap-10">
-          <a
-            href={content.whatsapp_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Phone className="h-5 w-5 text-brand-blue" />
-            <span>{content.whatsapp_number}</span>
-          </a>
-          <a
-            href={`mailto:${content.support_email}`}
-            className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Mail className="h-5 w-5 text-brand-blue" />
-            <span>{content.support_email}</span>
-          </a>
-          <a
-            href={`https://${content.site_url}`}
-            className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-
-          >
-            <Globe className="h-5 w-5 text-brand-blue" />
-            <span>{content.site_url}</span>
-          </a>
-        </div>
-
         <p className="mt-10 text-sm text-muted-foreground">
           © {new Date().getFullYear()} Ache Obra. Todos os direitos reservados.
         </p>
@@ -449,7 +401,6 @@ function FooterCtaSection() {
     </footer>
   );
 }
-
 
 function StoreBadge({ store }: { store: "google" | "apple" }) {
   return (

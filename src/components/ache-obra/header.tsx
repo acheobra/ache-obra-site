@@ -26,12 +26,14 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-xl shadow-lg shadow-black/10" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-lg font-bold text-primary-foreground">
-            A
-          </span>
-          <span className="text-xl font-bold tracking-tight text-foreground">Ache Obra</span>
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src="/images/logo.png"
+            alt="Logo Ache Obra"
+            className="h-24 w-auto object-contain"
+          />
+          <span className="text-xl font-bold tracking-tight text-brand-orange">Ache Obra</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

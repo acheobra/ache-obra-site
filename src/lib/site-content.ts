@@ -12,10 +12,7 @@ export const CONTENT_FIELDS = [
   { key: "footer_title", label: "Chamada final do rodapé", multiline: true },
   { key: "contact_title", label: "Título do atendimento", multiline: false },
   { key: "contact_subtitle", label: "Subtítulo do atendimento", multiline: true },
-  { key: "whatsapp_number", label: "WhatsApp (exibido)", multiline: false },
-  { key: "whatsapp_link", label: "Link do WhatsApp", multiline: false },
   { key: "support_email", label: "E-mail de suporte", multiline: false },
-  { key: "site_url", label: "Site oficial", multiline: false },
 ] as const;
 
 export type ContentKey = (typeof CONTENT_FIELDS)[number]["key"];
@@ -33,10 +30,7 @@ export const DEFAULT_CONTENT: SiteContent = {
   footer_title: "Sua obra merece a escolha certa. Baixe o Ache Obra agora mesmo!",
   contact_title: "Fale com o nosso atendimento",
   contact_subtitle: "Estamos prontos para ajudar clientes e profissionais.",
-  whatsapp_number: "(42) 99826-6021",
-  whatsapp_link: "https://wa.me/5542998266021",
   support_email: "suporte@acheobra.com.br",
-  site_url: "acheobra.com.br",
 };
 
 export async function fetchSiteContent(): Promise<SiteContent> {
