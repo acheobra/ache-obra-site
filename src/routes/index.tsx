@@ -33,13 +33,21 @@ import {
   Star,
 
   Mail,
+
   Bot,
+
   FileText,
+
   Hammer,
+
   Video,
+
   ClipboardCheck,
+
   MessageCircle,
+
   Sparkles,
+
 } from "lucide-react";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -49,7 +57,6 @@ import { Header } from "@/components/ache-obra/header";
 import { CtaButton } from "@/components/ache-obra/cta-button";
 
 import { siteContentQuery } from "@/lib/site-content";
-
 
 export const Route = createFileRoute("/")({
 
@@ -117,6 +124,10 @@ function Index() {
 
         <SolutionsSection />
 
+        <ProductFeaturesSection />
+
+        <JisaSection />
+
         <HowItWorksSection />
 
         <TrustSection />
@@ -131,11 +142,11 @@ function Index() {
 
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 // HERO
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 function HeroSection() {
 
@@ -147,7 +158,7 @@ function HeroSection() {
 
       id="#"
 
-      className="relative overflow-hidden gradient-hero pb-20 pt-32 md:pt-40"
+      className="relative isolate overflow-hidden gradient-hero pb-24 pt-28 md:pb-32 md:pt-40"
 
     >
 
@@ -159,7 +170,7 @@ function HeroSection() {
 
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-2 lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
 
         <div className="max-w-2xl">
 
@@ -171,13 +182,13 @@ function HeroSection() {
 
           </div>
 
-          <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-3xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-7xl">
 
             {content.hero_title}
 
           </h1>
 
-          <p className="mt-6 text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mt-6 max-w-2xl text-balance text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9">
 
             {content.hero_subtitle}
 
@@ -241,7 +252,7 @@ function HeroSection() {
 
         </div>
 
-        <div className="relative mx-auto flex max-w-md items-center justify-center lg:max-w-none">
+        <div className="relative mx-auto flex w-full max-w-md items-center justify-center rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-2xl shadow-black/20 ring-1 ring-white/5 sm:p-5 lg:max-w-none">
 
           <div className="absolute inset-0 rounded-full bg-brand-orange/10 blur-3xl" />
 
@@ -255,7 +266,7 @@ function HeroSection() {
 
             height={560}
 
-            className="relative z-10 drop-shadow-2xl"
+            className="relative z-10 h-auto w-full drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
 
             loading="eager"
 
@@ -273,11 +284,11 @@ function HeroSection() {
 
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 // SOLUÇÕES — PÚBLICO DUPLO
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 function SolutionsSection() {
 
@@ -285,7 +296,7 @@ function SolutionsSection() {
 
   return (
 
-    <section id="solucoes" className="relative py-24">
+    <section id="solucoes" className="relative py-20 sm:py-24 lg:py-28">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -431,172 +442,321 @@ function SolutionCard({
 
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
+
 // RECURSOS DO APLICATIVO
-/* ------------------------------------------------------------------ */
+
+//* ------------------------------------------------------------------ /*/
+
 function ProductFeaturesSection() {
+
   const features = [
+
     {
+
       icon: <ImageIcon className="h-6 w-6" />,
+
       title: "Perfis com portfólio visual",
+
       description:
+
         "Profissionais podem apresentar fotos e vídeos de trabalhos realizados, além de informar especialidades, serviços e localização.",
+
     },
+
     {
+
       icon: <MessageCircle className="h-6 w-6" />,
+
       title: "Chat para conversar e combinar detalhes",
+
       description:
+
         "Cliente e profissional podem conversar pelo aplicativo e compartilhar informações para alinhar o serviço antes de fechar o trabalho.",
+
     },
+
     {
+
       icon: <FileText className="h-6 w-6" />,
+
       title: "Elaboração de orçamentos",
+
       description:
+
         "Organize dados do profissional, do cliente e da obra para preparar um orçamento mais claro e profissional.",
+
     },
+
     {
+
       icon: <ClipboardCheck className="h-6 w-6" />,
+
       title: "Lista de materiais e pedidos",
+
       description:
+
         "Monte listas de materiais, informe quantidades, adicione observações e gere um PDF para facilitar a organização da compra.",
+
     },
+
     {
+
       icon: <BadgeCheck className="h-6 w-6" />,
+
       title: "Avaliações e verificação de perfil",
+
       description:
+
         "Consulte avaliações e informações apresentadas nos perfis para ajudar na escolha de quem contratar. O selo de verificação identifica perfis aprovados no processo do app.",
+
     },
+
     {
+
       icon: <Hammer className="h-6 w-6" />,
+
       title: "Ferramentas para o dia a dia da obra",
+
       description:
+
         "Acesse recursos que ajudam a organizar serviços, materiais e informações relacionadas à execução da obra.",
+
     },
+
   ];
 
   return (
-    <section id="recursos" className="border-y border-border bg-brand-surface/30 py-24">
+
+    <section id="recursos" className="border-y border-border bg-brand-surface/30 py-20 sm:py-24 lg:py-28">
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
         <div className="mx-auto max-w-3xl text-center">
+
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
+
             Muito além de encontrar profissionais
+
           </p>
+
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+
             Ferramentas que acompanham sua obra
+
           </h2>
+
           <p className="mt-4 text-lg text-muted-foreground">
+
             O Ache Obra reúne divulgação de serviços, comunicação e recursos práticos para ajudar clientes e profissionais a organizar melhor cada etapa.
+
           </p>
+
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
           {features.map((feature) => (
+
             <article
+
               key={feature.title}
+
               className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-orange/50 hover:shadow-xl hover:shadow-black/10"
+
             >
+
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
+
                 {feature.icon}
+
               </div>
+
               <h3 className="mt-5 text-xl font-bold text-card-foreground">{feature.title}</h3>
+
               <p className="mt-3 leading-relaxed text-muted-foreground">{feature.description}</p>
+
             </article>
+
           ))}
+
         </div>
 
         <div className="mt-10 rounded-3xl border border-brand-orange/25 bg-card p-6 sm:p-8">
+
           <div className="grid items-center gap-6 md:grid-cols-[auto_1fr]">
+
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-orange/10 text-brand-orange">
+
               <Video className="h-8 w-8" />
+
             </div>
+
             <div>
+
               <h3 className="text-xl font-bold text-card-foreground">Mostre o seu trabalho de verdade</h3>
+
               <p className="mt-2 text-muted-foreground">
+
                 Fotos, vídeos, descrição dos serviços e avaliações ajudam o cliente a conhecer melhor o profissional. Para quem procura trabalho, o perfil funciona como uma vitrine para apresentar experiência e especialidades.
+
               </p>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
   );
+
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
+
 // JISA — INTELIGÊNCIA ARTIFICIAL DO ACHE OBRA
-/* ------------------------------------------------------------------ */
+
+//* ------------------------------------------------------------------ /*/
+
 function JisaSection() {
+
   return (
-    <section id="jisa" className="relative overflow-hidden py-24">
+
+    <section id="jisa" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+
       <div className="pointer-events-none absolute inset-0">
+
         <div className="absolute -right-32 top-10 h-80 w-80 rounded-full bg-brand-orange/10 blur-3xl" />
+
         <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-blue/10 blur-3xl" />
+
       </div>
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+
           <div>
+
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-4 py-2 text-sm font-semibold text-brand-orange">
+
               <Sparkles className="h-4 w-4" />
+
               Inteligência artificial do Ache Obra
+
             </div>
+
             <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+
               Conheça a <span className="text-brand-orange">Jisa</span>, sua assistente de IA para o universo da construção
+
             </h2>
+
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+
               A Jisa é a inteligência artificial do Ache Obra, pensada para aproximar tecnologia e construção civil. Ela foi concebida para ajudar usuários a encontrar orientação, organizar ideias e lidar com dúvidas relacionadas ao dia a dia de uma obra.
+
             </p>
+
             <p className="mt-4 leading-relaxed text-muted-foreground">
+
               Seja você cliente, profissional, arquiteto ou engenheiro, a proposta é tornar a experiência digital mais simples e prática, reunindo recursos do aplicativo em um só lugar.
+
             </p>
+
             <a
+
               href="#download"
+
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-orange px-6 py-3 font-bold text-white shadow-lg shadow-brand-orange/20 transition hover:-translate-y-0.5 hover:brightness-105"
+
             >
+
               <Bot className="h-5 w-5" />
+
               Conheça o Ache Obra
+
             </a>
+
           </div>
 
           <div className="relative">
+
             <div className="absolute inset-8 rounded-full bg-brand-orange/10 blur-3xl" />
+
             <div className="relative rounded-3xl border border-border bg-card p-7 shadow-2xl shadow-black/10 sm:p-9">
+
               <div className="flex items-center gap-4 border-b border-border pb-6">
+
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-orange text-white shadow-lg shadow-brand-orange/20">
+
                   <Bot className="h-8 w-8" />
+
                 </div>
+
                 <div>
+
                   <p className="text-xl font-bold text-card-foreground">Jisa</p>
+
                   <p className="text-sm text-muted-foreground">IA do Ache Obra</p>
+
                 </div>
+
                 <span className="ml-auto rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-semibold text-brand-blue">Construção civil</span>
+
               </div>
+
               <div className="mt-6 space-y-4">
+
                 <div className="max-w-[90%] rounded-2xl rounded-tl-sm bg-brand-surface p-4 text-sm leading-relaxed text-foreground">
+
                   Olá! Sou a Jisa. Vamos organizar sua próxima etapa da obra?
+
                 </div>
+
                 <div className="ml-auto max-w-[90%] rounded-2xl rounded-tr-sm bg-brand-orange p-4 text-sm leading-relaxed text-white">
+
                   Preciso planejar os materiais e preparar um orçamento.
+
                 </div>
+
                 <div className="max-w-[90%] rounded-2xl rounded-tl-sm bg-brand-surface p-4 text-sm leading-relaxed text-foreground">
+
                   Posso ajudar você a estruturar as informações e pensar nos próximos passos. Confira sempre medidas, preços e orientações técnicas com profissionais responsáveis.
+
                 </div>
+
               </div>
+
               <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+
                 Exemplo ilustrativo de experiência. A disponibilidade e as funções da Jisa dependem dos recursos habilitados no aplicativo.
+
               </p>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
   );
+
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 // COMO FUNCIONA
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 function HowItWorksSection() {
 
@@ -710,11 +870,11 @@ function HowItWorksSection() {
 
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 // SEGURANÇA E CREDIBILIDADE
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 function TrustSection() {
 
@@ -722,7 +882,7 @@ function TrustSection() {
 
   return (
 
-    <section id="seguranca" className="relative overflow-hidden py-24">
+    <section id="seguranca" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
 
       <div className="absolute inset-0 pointer-events-none">
 
@@ -834,11 +994,11 @@ function TrustSection() {
 
 }
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 // RODAPÉ DE CONVERSÃO
 
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ /*/
 
 function FooterCtaSection() {
 
@@ -913,32 +1073,59 @@ function FooterCtaSection() {
 }
 
 function StoreBadge({ store }: { store: "google" | "apple" }) {
+
   const isGoogle = store === "google";
 
   return (
+
     <a
+
       href={isGoogle ? "https://play.google.com/store/apps/details?id=br.com.acheobra.app" : undefined}
+
       target={isGoogle ? "_blank" : undefined}
+
       rel={isGoogle ? "noopener noreferrer" : undefined}
+
       aria-label={isGoogle ? "Baixar Ache Obra na Google Play" : "iOS em breve"}
+
       onClick={isGoogle ? undefined : (event) => event.preventDefault()}
+
       className={`inline-flex min-h-14 items-center gap-3 rounded-xl border border-border bg-card px-5 transition-all ${isGoogle ? "hover:border-brand-orange/50 hover:bg-card/80" : "cursor-default opacity-90"}`}
+
     >
+
       {isGoogle ? (
+
         <svg className="h-7 w-7 text-foreground" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
           <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.807 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z" />
+
         </svg>
+
       ) : (
+
         <Smartphone className="h-7 w-7 text-brand-orange" aria-hidden="true" />
+
       )}
+
       <div className="text-left">
+
         <p className="text-[10px] leading-none text-muted-foreground">
+
           {isGoogle ? "Baixe agora na" : "Disponibilidade"}
+
         </p>
+
         <p className="text-base font-bold leading-tight text-foreground">
+
           {isGoogle ? "Google Play" : "iOS em breve"}
+
         </p>
+
       </div>
+
     </a>
+
   );
+
 }
